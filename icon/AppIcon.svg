@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  USAirQMinder app icon — the editable source.
+
+  AirQMinder's dial and waves in indigo rather than teal, so the two apps are
+  told apart on a home screen holding both. Indigo because the six EPA band
+  colours (green, yellow, orange, red, purple, maroon) are this app's whole
+  visual vocabulary — an icon in any of them reads as a permanent air quality
+  state — and teal is already spoken for.
+
+  Render with icon/render.sh, or open in Inkscape and edit directly.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1B2A6B"/>
+      <stop offset="1" stop-color="#3D6FD9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1024" height="1024" fill="url(#sky)"/>
+
+  <!-- The dial, faint behind, so the arc reads as progress along it -->
+  <circle cx="512" cy="452" r="276" fill="none" stroke="#FFFFFF" stroke-opacity="0.22" stroke-width="88"/>
+
+  <!-- 285 degrees clockwise from the top, leaving the gap at upper left -->
+  <path d="M 512 176 A 276 276 0 1 1 245.4 380.6"
+        fill="none" stroke="#9EE4F7" stroke-width="88" stroke-linecap="round"/>
+
+  <!-- The marker rides the dial at roughly five o'clock, in the "Good" green -->
+  <circle cx="645.8" cy="693.4" r="47" fill="#B6E8A0"/>
+
+  <!-- Air waves. Same curve as the widget background in AQIWidget.swift -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="36" stroke-linecap="round">
+    <path d="M 81.92 712 C 368.64 747.84, 655.36 676.16, 942.08 712" stroke-opacity="1.00"/>
+    <path d="M 81.92 794 C 368.64 829.84, 655.36 758.16, 942.08 794" stroke-opacity="0.55"/>
+    <path d="M 81.92 876 C 368.64 911.84, 655.36 840.16, 942.08 876" stroke-opacity="0.35"/>
+  </g>
+</svg>

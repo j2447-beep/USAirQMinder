@@ -83,17 +83,22 @@ them reads as a permanent air quality state: a red icon says "bad air" before
 you have opened anything. That rules out most of the spectrum, and AirQMinder
 already holds the teal end of what remains.
 
-It is drawn by code, not a design tool, because the original arrived as a flat
-PNG with no editable source:
+The source is `icon/AppIcon.svg` — open it in Inkscape, or edit the XML, which
+is short enough to read. AirQMinder has no editable source at all, only a flat
+PNG; this one does.
 
 ```bash
-swiftc icon/RenderIcon.swift -o /tmp/rendericon
-/tmp/rendericon USAirQMinder/Assets.xcassets/AppIcon.appiconset/AppIcon.png
+./icon/render.sh
 ```
+
+That exports the single universal 1024 the asset catalogue wants (iOS derives
+the smaller sizes). It expects Inkscape at the usual `/Applications` path;
+override with `INKSCAPE=/path/to/inkscape` if yours differs.
 
 ## Not done yet
 
 - Only a 1024 icon. iOS downsamples it, which is fine, but hand-tuned small
+  sizes would read better on the home screen.
   sizes would read better on the home screen.
 - The widget's cached reading is not shared with the app's, so each fetches
   its own.
