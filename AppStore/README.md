@@ -22,7 +22,10 @@ screen holds nothing but the stock apps and this one.
 
 | File | Shows |
 |---|---|
-| `iPad-01-main-reading.png` | Portland, AQI 170, Unhealthy |
+| `iPad-01-main-reading.png` | Denver, AQI 83, Moderate |
+| `iPad-01-main-reading-losangeles.png` | Central LA, AQI 62, Moderate |
+| `iPad-01-main-reading-portland.png` | Portland OR, AQI 170, **Unhealthy** — the red band |
+| `iPad-01-main-reading-nashville.png` | Nashville, AQI 53, Moderate |
 | `iPad-02-settings.png` | Settings, as a sheet |
 | `iPad-03-add-widget.png` | The widget picker with its sidebar |
 | `iPad-04-widget-on-home.png` | The widget on the home screen, live |
@@ -55,8 +58,8 @@ Denver is chosen because it usually reads Moderate — a yellow dial shows the
 colour coding doing something, where a Good/green reading looks like the app
 might have no states at all.
 
-The four city variants of `01` are alternatives for the same store slot, not a
-sequence. Pick per storefront, or run them as a set to show the app works
+The four city variants of `01` (and their `iPad-01` counterparts) are
+alternatives for the same store slot, not a sequence. Pick per storefront, or run them as a set to show the app works
 anywhere in the country. Coordinates used:
 
 | City | Latitude, longitude |
