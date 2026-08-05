@@ -4,6 +4,7 @@ import CoreLocation
 enum AQIError: LocalizedError {
     case missingKey
     case unauthorized
+    case rateLimited
     case badResponse
     case noStations
 
@@ -13,6 +14,8 @@ enum AQIError: LocalizedError {
             return "Add your AirNow API key in Settings to see local air quality. Keys are free from airnowapi.org."
         case .unauthorized:
             return "AirNow rejected the API key. Check it in Settings, or request a new one from airnowapi.org."
+        case .rateLimited:
+            return "AirNow is limiting requests from this API key. It allows a set number each hour — try again shortly."
         case .badResponse:
             return "Could not reach the AirNow air quality service."
         case .noStations:
@@ -69,6 +72,10 @@ struct AQIService {
         switch http.statusCode {
         case 200: break
         case 401, 403: throw AQIError.unauthorized
+        // AirNow caps requests per key per hour. Without this, hitting the cap
+        // reports as "could not reach the service", which sends people looking
+        // at their network when the service answered and said no.
+        case 429: throw AQIError.rateLimited
         default: throw AQIError.badResponse
         }
 
