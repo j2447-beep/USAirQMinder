@@ -99,6 +99,5 @@ override with `INKSCAPE=/path/to/inkscape` if yours differs.
 
 - Only a 1024 icon. iOS downsamples it, which is fine, but hand-tuned small
   sizes would read better on the home screen.
-  sizes would read better on the home screen.
 - The widget's cached reading is not shared with the app's, so each fetches
   its own.
