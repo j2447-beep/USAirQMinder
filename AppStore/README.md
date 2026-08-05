@@ -30,11 +30,9 @@ screen holds nothing but the stock apps and this one.
 `02` and `iPad-02` are captured with the API key field **empty** on purpose. A
 real key in a public screenshot would be handing out someone's rate limit.
 
-**The iPad layout is the phone layout stretched.** `iPad-01` is the honest
-picture of it: the dial and text sit in the top third and the remaining two
-thirds is empty white. It is not broken, and Apple will accept it, but it
-reads as unfinished next to apps that use the space. Worth laying out properly
-for iPad before leaning on these in a listing.
+On iPad the reading screen lays out in two columns — dial on the left, category
+and detail beside it — and centres in the height. `iPad-01` shows that. The
+iPhone layout is untouched.
 
 ## Reproducing them
 
@@ -75,8 +73,6 @@ live, though, so a rerun will show whatever the air is doing that day.
 
 ## Still to do before submitting
 
-- The iPad layout wastes two thirds of the screen (see above). The shots are
-  usable; the layout is what wants work.
 - The in-app clock in `01` reads the machine's real time, not 9:41, since the
   status bar override doesn't reach inside the app. Only noticeable if you look
   for it.
