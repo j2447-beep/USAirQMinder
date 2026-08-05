@@ -133,7 +133,7 @@ which is exempt. Answer **No**.
 ```
 USAirQMinder reads live data from the EPA's AirNow service (airnowapi.org), which issues a free API key per user. The app cannot show a reading until a key is entered, so please use this one to test:
 
-    API key: <PASTE A WORKING AIRNOW KEY HERE>
+    API key: <PASTE THE REVIEW KEY HERE — DO NOT COMMIT IT>
 
 To enter it: open the app, tap the gear icon in the top right, paste the key into "AirNow API key", and tap Done. A reading appears immediately.
 
@@ -144,4 +144,7 @@ The home screen widget uses the same key via an App Group, and asks for its own 
 There is no account, no sign-in, and no server operated by us.
 ```
 
-Do not submit with the placeholder still in place.
+Paste the key straight into App Store Connect. **Do not commit it here** —
+this repo is public at github.com/j2447-beep/USAirQMinder, and anything
+committed stays in the history even after it's deleted. The review key is a
+borrowed one; revoke it once the app is approved.
