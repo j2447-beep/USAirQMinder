@@ -72,9 +72,28 @@ Then build as usual:
 xcodebuild build -project USAirQMinder.xcodeproj -scheme USAirQMinder -destination 'platform=iOS Simulator,name=iPhone 17 Pro'
 ```
 
+## The icon
+
+AirQMinder's dial and waves in indigo (`#1B2A6B` → `#3D6FD9`) rather than teal,
+so the two are told apart on a home screen holding both.
+
+Indigo isn't arbitrary. The six EPA band colours — green, yellow, orange, red,
+purple, maroon — are this app's whole visual vocabulary, so an icon in any of
+them reads as a permanent air quality state: a red icon says "bad air" before
+you have opened anything. That rules out most of the spectrum, and AirQMinder
+already holds the teal end of what remains.
+
+It is drawn by code, not a design tool, because the original arrived as a flat
+PNG with no editable source:
+
+```bash
+swiftc icon/RenderIcon.swift -o /tmp/rendericon
+/tmp/rendericon USAirQMinder/Assets.xcassets/AppIcon.appiconset/AppIcon.png
+```
+
 ## Not done yet
 
-- No widget. AirQMinder has one; this doesn't.
-- No app icon or asset catalog.
-- Not tested against the live API — the decoding and category logic were
-  verified against a sample payload, but nobody has run it with a real key.
+- Only a 1024 icon. iOS downsamples it, which is fine, but hand-tuned small
+  sizes would read better on the home screen.
+- The widget's cached reading is not shared with the app's, so each fetches
+  its own.
