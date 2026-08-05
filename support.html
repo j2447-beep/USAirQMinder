@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USAirQMinder — Support</title>
+<style>
+  :root {
+    --text: #1a2733;
+    --muted: #5a6b7a;
+    --accent: #0b6f8a;
+    --bg: #ffffff;
+    --rule: #e3e8ee;
+    --highlight-bg: #f2f8fb;
+    --highlight-border: #bcdbe6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text: #e6edf3;
+      --muted: #9aa8b5;
+      --accent: #57c6e0;
+      --bg: #10181f;
+      --rule: #2a3742;
+      --highlight-bg: #14252e;
+      --highlight-border: #2f4b57;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+  .updated { color: var(--muted); margin-top: 0; }
+  h2 {
+    font-size: 1.25rem;
+    margin-top: 2.2em;
+    padding-top: 1.2em;
+    border-top: 1px solid var(--rule);
+  }
+  a { color: var(--accent); }
+  ul { padding-left: 1.3em; }
+  li { margin-bottom: 0.4em; }
+  .summary {
+    margin: 1.5em 0;
+    padding: 1em 1.25em;
+    background: var(--highlight-bg);
+    border: 1px solid var(--highlight-border);
+    border-radius: 10px;
+  }
+  .summary strong { display: block; margin-bottom: 0.3em; }
+  .summary ul { margin-bottom: 0; }
+  .contact {
+    margin-top: 2.5em;
+    padding: 1em 1.25em;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+  }
+  h3 { font-size: 1.05rem; margin-bottom: 0.3em; }
+  h3 + p { margin-top: 0; }
+  h3 + ul { margin-top: 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>USAirQMinder Support</h1>
+
+  <p>Current U.S. air quality for wherever you are, from the EPA's AirNow service. Questions, problems, or ideas? Email <a href="mailto:wjfrench@proton.me">wjfrench@proton.me</a> and you'll get a reply, usually within a couple of days. Answers to the most common questions are below.</p>
+
+  <div class="summary">
+    <strong>USAirQMinder is not a health or emergency service.</strong>
+    Readings describe a monitoring area near you, published hourly. Air quality can differ over short distances. If you have a condition affected by air quality, follow your doctor's advice and official public health guidance rather than this app.
+  </div>
+
+  <h2>Getting Started</h2>
+
+  <h3>Why do I need an API key?</h3>
+  <p>USAirQMinder reads live data from the EPA's AirNow service, and AirNow issues each person their own key with its own rate limit. A key can't be shipped inside the app — everyone using it would be sharing one allowance, and it would stop working for all of you at once. Keys are free.</p>
+
+  <h3>How do I get one?</h3>
+  <p>Request one at <a href="https://docs.airnowapi.org/account/request/">docs.airnowapi.org/account/request</a>. It arrives by email. Then open USAirQMinder, tap the gear icon, and paste it into <strong>AirNow API key</strong>. The reading appears as soon as you tap Done.</p>
+
+  <h3>Where is my key stored?</h3>
+  <p>On your device only, in storage shared between the app and its widget so both can use it. It is sent to airnowapi.org and nowhere else. See the <a href="privacypolicy.html">privacy policy</a> for the full picture.</p>
+
+  <h3>The app says the key was rejected.</h3>
+  <p>Check for a stray space at the start or end when pasting. If it still fails, request a fresh key — AirNow keys can be reissued, and an old one may have been revoked.</p>
+
+  <h2>Readings</h2>
+
+  <h3>What do the numbers mean?</h3>
+  <p>The EPA's Air Quality Index runs from 0 to 500 in six bands, and the app shows the band's colour and its official health message:</p>
+  <ul>
+    <li><strong>0–50 Good</strong> — little or no risk.</li>
+    <li><strong>51–100 Moderate</strong> — acceptable; a risk for people unusually sensitive to air pollution.</li>
+    <li><strong>101–150 Unhealthy for Sensitive Groups</strong> — sensitive groups may feel effects; the general public is less likely to.</li>
+    <li><strong>151–200 Unhealthy</strong> — some of the general public may feel effects; sensitive groups more seriously.</li>
+    <li><strong>201–300 Very Unhealthy</strong> — health alert; risk is increased for everyone.</li>
+    <li><strong>301+ Hazardous</strong> — health warning of emergency conditions.</li>
+  </ul>
+
+  <h3>Why does it show one number when there are three pollutants?</h3>
+  <p>AirNow reports an AQI for each pollutant it measures — ozone, PM2.5, PM10. The figure everyone calls "the AQI" is the worst of them, and that is the one shown large, with the pollutant responsible named underneath. The others appear in the row below it. A pollutant that isn't being reported is left out rather than shown as zero.</p>
+
+  <h3>The reporting area is miles away. Is the reading still useful?</h3>
+  <p>Usually, but treat it as an approximation. The app tells you the distance for exactly this reason. Monitoring areas are sparse in rural parts of the country, and if nothing is found within about 25 miles the app widens its search before giving up.</p>
+
+  <h3>It says no reporting area was found.</h3>
+  <p>Either you are outside AirNow's coverage — it covers the United States and its territories — or there is no monitor within range of where you are. There is nothing to fix in the app; the data simply isn't published for that spot.</p>
+
+  <h3>How often does it update?</h3>
+  <p>AirNow publishes new observations once an hour, so checking more often than that won't get you newer numbers. The app checks on the schedule you pick in Settings while it is open, and every time you return to it. The "Observed" line tells you when the reading itself was taken, which is the time that actually matters.</p>
+
+  <h2>The Widget</h2>
+
+  <h3>How do I add it?</h3>
+  <p>Touch and hold an empty part of your home screen, tap <strong>Edit</strong> then <strong>Add Widget</strong>, search for USAirQMinder, and choose a size. Small and medium are both available.</p>
+
+  <h3>It says "Add your AirNow key in USAirQMinder".</h3>
+  <p>The widget can't fetch anything until a key is set. Open the app, add your key in Settings, and the widget will fill in on its next refresh.</p>
+
+  <h3>It says "Open USAirQMinder to update".</h3>
+  <p>The widget's last refresh failed — usually no network, or location unavailable at that moment — and the cached reading it falls back on has gone stale. Opening the app fetches a fresh one and the widget follows.</p>
+
+  <h3>The widget asks for location separately.</h3>
+  <p>That is iOS. A widget is a separate process from the app, so it needs its own permission to use your location. Allowing it lets the widget refresh on its own instead of only when you open the app.</p>
+
+  <h3>It hasn't updated in a while.</h3>
+  <p>iOS decides when widgets may refresh, based on battery, usage patterns and how often you look at it. The app asks for roughly every half hour; the system may allow less. Opening the app always brings both up to date.</p>
+
+  <h2>Privacy</h2>
+
+  <p>No accounts, no analytics, no advertising, and no server of ours for the app to talk to. Your approximate location and your own API key go to AirNow, and nowhere else. The full detail is in the <a href="privacypolicy.html">privacy policy</a>.</p>
+
+  <h2>Data Source</h2>
+
+  <p>All readings come from the U.S. Environmental Protection Agency's <a href="https://www.airnow.gov/">AirNow</a> service, which aggregates measurements from state, local and tribal monitoring agencies. USAirQMinder is not affiliated with or endorsed by the EPA.</p>
+
+  <div class="contact">
+    <strong>Still stuck?</strong><br>
+    Email <a href="mailto:wjfrench@proton.me">wjfrench@proton.me</a> — please mention your iPhone or iPad model, your iOS version, and roughly where you were when the problem happened.
+  </div>
+</main>
+</body>
+</html>

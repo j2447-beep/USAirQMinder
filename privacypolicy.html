@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USAirQMinder — Privacy Policy</title>
+<style>
+  :root {
+    --text: #1a2733;
+    --muted: #5a6b7a;
+    --accent: #0b6f8a;
+    --bg: #ffffff;
+    --rule: #e3e8ee;
+    --highlight-bg: #f2f8fb;
+    --highlight-border: #bcdbe6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text: #e6edf3;
+      --muted: #9aa8b5;
+      --accent: #57c6e0;
+      --bg: #10181f;
+      --rule: #2a3742;
+      --highlight-bg: #14252e;
+      --highlight-border: #2f4b57;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+  .updated { color: var(--muted); margin-top: 0; }
+  h2 {
+    font-size: 1.25rem;
+    margin-top: 2.2em;
+    padding-top: 1.2em;
+    border-top: 1px solid var(--rule);
+  }
+  a { color: var(--accent); }
+  ul { padding-left: 1.3em; }
+  li { margin-bottom: 0.4em; }
+  .summary {
+    margin: 1.5em 0;
+    padding: 1em 1.25em;
+    background: var(--highlight-bg);
+    border: 1px solid var(--highlight-border);
+    border-radius: 10px;
+  }
+  .summary strong { display: block; margin-bottom: 0.3em; }
+  .summary ul { margin-bottom: 0; }
+  .contact {
+    margin-top: 2.5em;
+    padding: 1em 1.25em;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>USAirQMinder Privacy Policy</h1>
+  <p class="updated">Last updated: August 5, 2026</p>
+
+  <p>USAirQMinder ("the App", "we", "us") shows the Air Quality Index (AQI) for the EPA AirNow reporting area nearest to you in the United States, using data published by the U.S. Environmental Protection Agency. This policy explains what the App does with your information.</p>
+
+  <div class="summary">
+    <strong>The short version</strong>
+    <ul>
+      <li>There are no accounts and no sign-in.</li>
+      <li>We run no servers and receive no data about you at all.</li>
+      <li>Your approximate location is sent to the EPA's AirNow service, and nowhere else, so it can tell the App which reporting area you are near.</li>
+      <li>Your AirNow API key stays on your device and is sent only to AirNow.</li>
+      <li>There is no analytics, no advertising, and no tracking of any kind.</li>
+    </ul>
+  </div>
+
+  <h2>Information the App Uses</h2>
+
+  <p><strong>Location.</strong> With your permission, the App asks iOS for your location while you are using it, and the widget asks for it when it refreshes. The App requests only kilometre-level accuracy, which is as precise as it needs to be to find the right reporting area — it does not ask for, and does not receive, a precise fix.</p>
+
+  <p>Your latitude and longitude are included in the request the App makes to AirNow, because that is how AirNow determines which reporting area to return. This means your approximate location is transmitted to the EPA's service. It is not stored on your device beyond the life of that request, and it is not sent anywhere else.</p>
+
+  <p><strong>Your AirNow API key.</strong> AirNow issues each person their own key. The key you enter is stored on your device, in a container shared between the App and its widget so both can use it, and is included in requests to AirNow so the service can identify the account making them. It is not transmitted anywhere else, and we never see it.</p>
+
+  <p><strong>Settings and the last reading.</strong> Your chosen refresh interval, and the most recent reading the widget fetched, are stored on your device so the widget can show something useful when a refresh fails. Both are removed when you delete the App.</p>
+
+  <h2>Information We Receive</h2>
+
+  <p>None. The App has no backend, no account system and no telemetry. There is no server operated by us for the App to talk to, so there is nothing for us to collect, store, sell or disclose. The only network requests the App makes are to AirNow.</p>
+
+  <h2>Third Party Services</h2>
+
+  <p>The App uses one third party service: the EPA's <strong>AirNow</strong> API at <code>airnowapi.org</code>. Requests to it carry your approximate coordinates and your API key, over an encrypted connection. AirNow's handling of those requests is governed by its own terms and by the EPA's privacy policy, which you can read at <a href="https://www.airnow.gov/privacy/">airnow.gov/privacy</a>.</p>
+
+  <p>The App contains no advertising networks, no analytics libraries, and no third party SDKs of any other kind.</p>
+
+  <h2>Data Retention and Deletion</h2>
+
+  <p>Everything the App stores is on your device: your API key, your refresh interval, and the last reading. There is no account to close and nothing held elsewhere. Deleting the App removes all of it. You can clear your API key at any time by emptying the field in Settings.</p>
+
+  <h2>Your Choices and Rights</h2>
+  <ul>
+    <li><strong>Location:</strong> turn location access on or off at any time in iOS Settings. Without it the App cannot find your reporting area, but nothing else changes.</li>
+    <li><strong>Your API key:</strong> enter, change or clear it in the App's Settings screen.</li>
+    <li><strong>Deletion:</strong> delete the App to remove everything it has stored.</li>
+  </ul>
+
+  <p>Because we hold no personal information about you, there is nothing for us to give you a copy of, correct, or delete on request. Rights under laws such as the GDPR, UK GDPR or the California Consumer Privacy Act still apply in principle; in practice they are satisfied by our not collecting anything. We do not sell or share personal information as those terms are defined under the CCPA.</p>
+
+  <h2>Security</h2>
+
+  <p>Requests to AirNow are made over HTTPS. Your API key and settings are stored using the operating system's own storage for app preferences, protected by iOS device encryption. No method of transmission or storage is completely secure, but the App holds very little and sends it to only one place.</p>
+
+  <h2>Children's Privacy</h2>
+
+  <p>The App is not directed at children and collects no personal information from anyone, including children under 13.</p>
+
+  <h2>Important Note About Air Quality Information</h2>
+
+  <p>Readings come from the EPA's monitoring network and describe conditions at a reporting area that may be some distance from you — the App tells you how far. Air quality can differ over short distances, readings are published hourly rather than continuously, and monitors can be offline. The App is for general awareness. It is not a medical device, and it should not be relied on for decisions about health, safety, or emergency response. If you have a health condition affected by air quality, follow the advice of your doctor and of official public health guidance.</p>
+
+  <h2>Availability</h2>
+
+  <p>AirNow covers the United States and its territories. Outside that coverage the App will tell you no reporting area was found rather than showing a reading from somewhere unrelated.</p>
+
+  <h2>Changes to This Policy</h2>
+
+  <p>If this policy changes, the "Last updated" date above will change with it. Material changes will be noted in the App's release notes.</p>
+
+  <h2>Contact</h2>
+
+  <p>Questions about this policy: <a href="mailto:wjfrench@proton.me">wjfrench@proton.me</a>.</p>
+</main>
+</body>
+</html>
