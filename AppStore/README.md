@@ -7,6 +7,9 @@ stock apps and this one.
 | File | Shows |
 |---|---|
 | `01-main-reading.png` | The reading. Denver, AQI 83, Moderate, live from AirNow |
+| `01-main-reading-losangeles.png` | Central LA, AQI 62, Moderate |
+| `01-main-reading-portland.png` | Portland OR, AQI 170, **Unhealthy** — the red band |
+| `01-main-reading-nashville.png` | Nashville, AQI 53, Moderate |
 | `02-settings.png` | Key field and update schedule |
 | `03-widget-step1-touch-and-hold.png` | Touch and hold the home screen |
 | `04-widget-step2-add-widget.png` | Edit → Add Widget |
@@ -37,6 +40,22 @@ whatever the machine's clock and simulated signal happen to be.
 Denver is chosen because it usually reads Moderate — a yellow dial shows the
 colour coding doing something, where a Good/green reading looks like the app
 might have no states at all.
+
+The four city variants of `01` are alternatives for the same store slot, not a
+sequence. Pick per storefront, or run them as a set to show the app works
+anywhere in the country. Coordinates used:
+
+| City | Latitude, longitude |
+|---|---|
+| Denver | `39.7392,-104.9903` |
+| Los Angeles | `34.0522,-118.2437` |
+| Portland | `45.5152,-122.6784` |
+| Nashville | `36.1627,-86.7816` |
+
+Portland is the one worth leading with. At 170 it renders the red Unhealthy
+band, which is the case the app exists for — the three Moderate readings all
+look alike, and none of them shows what a bad-air day looks like. Readings are
+live, though, so a rerun will show whatever the air is doing that day.
 
 ## Still to do before submitting
 
