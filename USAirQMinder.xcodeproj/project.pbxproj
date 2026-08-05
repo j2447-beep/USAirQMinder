@@ -1,0 +1,380 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		41BBED301C027AA34C0612EF /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F8777DDBCC224E3F9353D /* AppViewModel.swift */; };
+		661CFD53524091F637ACFADB /* USAirQMinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3F8490F444C4C172463E8F /* USAirQMinderApp.swift */; };
+		830F8523BF31CB30D77A30F2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA82A7FC41636A26544D36E6 /* SettingsView.swift */; };
+		8E50BB76A93D15544A0D65BD /* AQIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2B213821EF3AE2544C5F92 /* AQIService.swift */; };
+		99AB77A387C684DD7F285A8C /* AQI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC7461C7F827BF06D09353C /* AQI.swift */; };
+		AB280F492FA2A18D9EE72ECA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1746423D37FF352A2C8D7D45 /* ContentView.swift */; };
+		B6755B127C006DB57C7A051C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E76F1F1441CE4D10DA34CC68 /* Foundation.framework */; };
+		FF7B757A3F84FA8ED301733A /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E0D3D71C5BEC480BAF11 /* LocationService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0EC7461C7F827BF06D09353C /* AQI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AQI.swift; sourceTree = "<group>"; };
+		150F8777DDBCC224E3F9353D /* AppViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		1746423D37FF352A2C8D7D45 /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		24E079442C5C7F60195812AD /* USAirQMinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = USAirQMinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65576E6C85F16D836B751232 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C2B213821EF3AE2544C5F92 /* AQIService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AQIService.swift; sourceTree = "<group>"; };
+		9595E0D3D71C5BEC480BAF11 /* LocationService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		BA82A7FC41636A26544D36E6 /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		CD3F8490F444C4C172463E8F /* USAirQMinderApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = USAirQMinderApp.swift; sourceTree = "<group>"; };
+		E76F1F1441CE4D10DA34CC68 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		57F67EA15F6F0D234EEBF44C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6755B127C006DB57C7A051C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F53DA696FCD518A278C2BEE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				24E079442C5C7F60195812AD /* USAirQMinder.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3128EB7F72E617DE312528D9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6C2B213821EF3AE2544C5F92 /* AQIService.swift */,
+				9595E0D3D71C5BEC480BAF11 /* LocationService.swift */,
+			);
+			name = Services;
+			path = Services;
+			sourceTree = "<group>";
+		};
+		47CBE7E18884278D05DB903F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E76F1F1441CE4D10DA34CC68 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		733F829EC7AB79F0EDC389E4 /* USAirQMinder */ = {
+			isa = PBXGroup;
+			children = (
+				1746423D37FF352A2C8D7D45 /* ContentView.swift */,
+				65576E6C85F16D836B751232 /* Info.plist */,
+				7D3BD74538D90E355ADDB105 /* Models */,
+				3128EB7F72E617DE312528D9 /* Services */,
+				CD3F8490F444C4C172463E8F /* USAirQMinderApp.swift */,
+				B000AC39AB46A6B9413CCD1D /* Views */,
+			);
+			name = USAirQMinder;
+			path = USAirQMinder;
+			sourceTree = "<group>";
+		};
+		7D3BD74538D90E355ADDB105 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0EC7461C7F827BF06D09353C /* AQI.swift */,
+				150F8777DDBCC224E3F9353D /* AppViewModel.swift */,
+			);
+			name = Models;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B000AC39AB46A6B9413CCD1D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA82A7FC41636A26544D36E6 /* SettingsView.swift */,
+			);
+			name = Views;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C8CDC4CAB7E23DD74D283558 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				47CBE7E18884278D05DB903F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9B4C93B6C34080A33A807D0 = {
+			isa = PBXGroup;
+			children = (
+				2F53DA696FCD518A278C2BEE /* Products */,
+				C8CDC4CAB7E23DD74D283558 /* Frameworks */,
+				733F829EC7AB79F0EDC389E4 /* USAirQMinder */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4E31889BDB730771161F80A4 /* USAirQMinder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9363705D53E5A8C5CB42D715 /* Build configuration list for PBXNativeTarget "USAirQMinder" */;
+			buildPhases = (
+				79C77A034239AF85E8EC4103 /* Sources */,
+				57F67EA15F6F0D234EEBF44C /* Frameworks */,
+				05D6B336A29D14F8E58AEB32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = USAirQMinder;
+			productName = USAirQMinder;
+			productReference = 24E079442C5C7F60195812AD /* USAirQMinder.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A926ECBFF3BF9ECA38E7EC57 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = 5C471EBAB30879D35A884B3B /* Build configuration list for PBXProject "USAirQMinder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C9B4C93B6C34080A33A807D0;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 2F53DA696FCD518A278C2BEE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4E31889BDB730771161F80A4 /* USAirQMinder */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05D6B336A29D14F8E58AEB32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		79C77A034239AF85E8EC4103 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB280F492FA2A18D9EE72ECA /* ContentView.swift in Sources */,
+				99AB77A387C684DD7F285A8C /* AQI.swift in Sources */,
+				41BBED301C027AA34C0612EF /* AppViewModel.swift in Sources */,
+				8E50BB76A93D15544A0D65BD /* AQIService.swift in Sources */,
+				FF7B757A3F84FA8ED301733A /* LocationService.swift in Sources */,
+				661CFD53524091F637ACFADB /* USAirQMinderApp.swift in Sources */,
+				830F8523BF31CB30D77A30F2 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		36B58689DBB754FF0EAA2980 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = USAirQMinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.usairqminder.app;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4F37B5007B5C29DA8B124EEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5BAB97F0BA4B289AFA97DEE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = USAirQMinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.usairqminder.app;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B29B3D7313A420FD7FDA11AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5C471EBAB30879D35A884B3B /* Build configuration list for PBXProject "USAirQMinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F37B5007B5C29DA8B124EEE /* Debug */,
+				B29B3D7313A420FD7FDA11AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9363705D53E5A8C5CB42D715 /* Build configuration list for PBXNativeTarget "USAirQMinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36B58689DBB754FF0EAA2980 /* Release */,
+				5BAB97F0BA4B289AFA97DEE1 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A926ECBFF3BF9ECA38E7EC57 /* Project object */;
+}

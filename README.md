@@ -1,0 +1,80 @@
+# USAirQMinder
+
+Current US air quality at your location, from the EPA's AirNow service. The
+American counterpart to [AirQMinder](../AirQMinder), which does the same for
+Canada using Environment and Climate Change Canada's AQHI feed.
+
+Local project — not published anywhere yet.
+
+## Why AirNow and not AQS
+
+The EPA runs two air quality APIs, and they answer different questions.
+
+**AQS** (`aqs.epa.gov/data/api`) is the regulatory archive: quality-assured
+data submitted by state and local agencies. Every query needs an explicit
+`bdate`/`edate` range, and the data lags by months while it is validated and
+certified. It is built for analysis of what the air *was*.
+
+**AirNow** (`airnowapi.org`) is the real-time feed: hourly observations,
+queryable by latitude and longitude, which is what "what am I breathing right
+now" needs. It is the same data behind airnow.gov and the EPA's own app.
+
+This app uses AirNow. AQS is still the right source if trends or history are
+ever added.
+
+## The AirNow key
+
+AirNow issues a free key per user, rate-limited to that key, so the app can't
+ship with one baked in. Enter yours under Settings; it is stored in
+`UserDefaults` on the device and sent only to airnowapi.org.
+
+Request one at <https://docs.airnowapi.org/account/request/>.
+
+## What it shows
+
+AirNow reports a separate AQI per pollutant (ozone, PM2.5, PM10). The number
+shown as "the AQI" is the highest of them, and the pollutant carrying it is
+named underneath — that is the one the EPA health advice is written about.
+The others appear in a row below. Readings of `-1` mean the pollutant isn't
+being reported and are dropped.
+
+Categories follow the EPA's six bands and their published colors. Yellow on
+white is unreadable, so Moderate uses a darkened shade for text while the dial
+keeps the official color.
+
+## Layout
+
+```
+USAirQMinder/
+  USAirQMinderApp.swift     app entry, refresh on foreground
+  ContentView.swift         the dial, category, pollutant breakdown
+  Models/
+    AQI.swift               reading, EPA categories, AirNow decoding
+    AppViewModel.swift      refresh loop and stored settings
+  Services/
+    AQIService.swift        AirNow requests, dominant-pollutant logic
+    LocationService.swift   one-shot CLLocationManager wrapper
+  Views/
+    SettingsView.swift      API key, refresh interval
+```
+
+## Building
+
+The Xcode project is generated, not hand-edited. After adding a Swift file:
+
+```bash
+ruby create_project.rb
+```
+
+Then build as usual:
+
+```bash
+xcodebuild build -project USAirQMinder.xcodeproj -scheme USAirQMinder -destination 'platform=iOS Simulator,name=iPhone 17 Pro'
+```
+
+## Not done yet
+
+- No widget. AirQMinder has one; this doesn't.
+- No app icon or asset catalog.
+- Not tested against the live API — the decoding and category logic were
+  verified against a sample payload, but nobody has run it with a real key.
