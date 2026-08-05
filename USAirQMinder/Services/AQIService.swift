@@ -30,13 +30,11 @@ enum AQIError: LocalizedError {
 /// months, so it answers a different question entirely.
 struct AQIService {
     /// Where the user's AirNow key is kept. Not a secret worth protecting
-    /// from the device's owner — it is their own key, rate-limited to them.
-    static let apiKeyDefaultsKey = "airNowAPIKey"
+    /// from the device's owner — it is their own key, rate-limited to them —
+    /// but it lives in the shared App Group so the widget can reach it too.
+    static let apiKeyDefaultsKey = SharedDefaults.apiKeyKey
 
-    var apiKey: String {
-        UserDefaults.standard.string(forKey: Self.apiKeyDefaultsKey)?
-            .trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-    }
+    var apiKey: String { SharedDefaults.apiKey }
 
     /// Returns the dominant pollutant's reading for the reporting area
     /// nearest `location`, searching outwards until something is found.

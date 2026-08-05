@@ -7,147 +7,228 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		41BBED301C027AA34C0612EF /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F8777DDBCC224E3F9353D /* AppViewModel.swift */; };
-		661CFD53524091F637ACFADB /* USAirQMinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3F8490F444C4C172463E8F /* USAirQMinderApp.swift */; };
-		830F8523BF31CB30D77A30F2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA82A7FC41636A26544D36E6 /* SettingsView.swift */; };
-		8E50BB76A93D15544A0D65BD /* AQIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2B213821EF3AE2544C5F92 /* AQIService.swift */; };
-		99AB77A387C684DD7F285A8C /* AQI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC7461C7F827BF06D09353C /* AQI.swift */; };
-		AB280F492FA2A18D9EE72ECA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1746423D37FF352A2C8D7D45 /* ContentView.swift */; };
-		B6755B127C006DB57C7A051C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E76F1F1441CE4D10DA34CC68 /* Foundation.framework */; };
-		FF7B757A3F84FA8ED301733A /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E0D3D71C5BEC480BAF11 /* LocationService.swift */; };
+		17FBE70FDD16F4A52D1E0F50 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D72916837071C6B3B4376C /* LocationService.swift */; };
+		1CE9F3EDE34F4D9963F12BB0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D44CA6C90639EC8B8BBD7 /* ContentView.swift */; };
+		295E8B307ECF46A14A50F9B4 /* SharedDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0790B08898FC1414E793BA /* SharedDefaults.swift */; };
+		5A8C5B04D7C62C45815AE75C /* AQIWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6914AEE97527E9F1AE4BB2B /* AQIWidget.swift */; };
+		5DF986F9477081742F1E8EA6 /* AQI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B634AC591B03EEE28D33B1 /* AQI.swift */; };
+		5F969A06CCFD7DB8F614FFC2 /* USAirQMinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706C5BCE9AF08854ECCABFAA /* USAirQMinderApp.swift */; };
+		6D0DA040090E43AF2122E3D0 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4478229EEB603F342E979 /* AppViewModel.swift */; };
+		894746336FFD3649DDDFD6A3 /* USAirQMinderWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 05CDF6106184E8F778B474BC /* USAirQMinderWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9E5F73A28625F24A8170C072 /* AQIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BC90636B36C19372206ED1 /* AQIService.swift */; };
+		A347E05B3768B0684E5BACCD /* SharedDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0790B08898FC1414E793BA /* SharedDefaults.swift */; };
+		D586579CA8D39FC4D32ED8F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFDA3A0D520BDC5315B02E /* Assets.xcassets */; };
+		D94870A8C33B331E73FBB757 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1238B0684FC7F507427DDA /* SettingsView.swift */; };
+		E3563A7EEC36811F4973F723 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D347165DA0EB191D289250D /* Foundation.framework */; };
+		EA73161FB4CB08A07D467CBB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D347165DA0EB191D289250D /* Foundation.framework */; };
+		F32D96C89EFEAB264502CFBD /* AQI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B634AC591B03EEE28D33B1 /* AQI.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9717E8D1D42DDA218D947CEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB077CA8FF979843D553FD37 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D3AF6C98D7771B8787DFCAF6;
+			remoteInfo = USAirQMinderWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8B9CDD09C8D667867663D256 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				894746336FFD3649DDDFD6A3 /* USAirQMinderWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		0EC7461C7F827BF06D09353C /* AQI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AQI.swift; sourceTree = "<group>"; };
-		150F8777DDBCC224E3F9353D /* AppViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
-		1746423D37FF352A2C8D7D45 /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		24E079442C5C7F60195812AD /* USAirQMinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = USAirQMinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		65576E6C85F16D836B751232 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C2B213821EF3AE2544C5F92 /* AQIService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AQIService.swift; sourceTree = "<group>"; };
-		9595E0D3D71C5BEC480BAF11 /* LocationService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
-		BA82A7FC41636A26544D36E6 /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		CD3F8490F444C4C172463E8F /* USAirQMinderApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = USAirQMinderApp.swift; sourceTree = "<group>"; };
-		E76F1F1441CE4D10DA34CC68 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		05CDF6106184E8F778B474BC /* USAirQMinderWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = USAirQMinderWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		101E4EB6DFBBB2940BC24BC3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E0790B08898FC1414E793BA /* SharedDefaults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SharedDefaults.swift; sourceTree = "<group>"; };
+		313F0FAB85ED734FFD5D1307 /* USAirQMinder.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = USAirQMinder.entitlements; sourceTree = "<group>"; };
+		492AFDCC30ADE1AF3EAE369F /* USAirQMinderWidget.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = USAirQMinderWidget.entitlements; sourceTree = "<group>"; };
+		4D347165DA0EB191D289250D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		4DE4478229EEB603F342E979 /* AppViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		706C5BCE9AF08854ECCABFAA /* USAirQMinderApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = USAirQMinderApp.swift; sourceTree = "<group>"; };
+		7BFFDA3A0D520BDC5315B02E /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B9536FDC7AF436D552DF1616 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9B634AC591B03EEE28D33B1 /* AQI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AQI.swift; sourceTree = "<group>"; };
+		D5BC90636B36C19372206ED1 /* AQIService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AQIService.swift; sourceTree = "<group>"; };
+		D5D72916837071C6B3B4376C /* LocationService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		D6914AEE97527E9F1AE4BB2B /* AQIWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AQIWidget.swift; sourceTree = "<group>"; };
+		DF1238B0684FC7F507427DDA /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E44C1959E3390915D2108068 /* USAirQMinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = USAirQMinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA6D44CA6C90639EC8B8BBD7 /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		57F67EA15F6F0D234EEBF44C /* Frameworks */ = {
+		C913A6691EB611549F2E256C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6755B127C006DB57C7A051C /* Foundation.framework in Frameworks */,
+				EA73161FB4CB08A07D467CBB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF6414B2248E01ACA474A400 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3563A7EEC36811F4973F723 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2F53DA696FCD518A278C2BEE /* Products */ = {
+		198261E6278FC65F10A8956A /* USAirQMinder */ = {
 			isa = PBXGroup;
 			children = (
-				24E079442C5C7F60195812AD /* USAirQMinder.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		3128EB7F72E617DE312528D9 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				6C2B213821EF3AE2544C5F92 /* AQIService.swift */,
-				9595E0D3D71C5BEC480BAF11 /* LocationService.swift */,
-			);
-			name = Services;
-			path = Services;
-			sourceTree = "<group>";
-		};
-		47CBE7E18884278D05DB903F /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				E76F1F1441CE4D10DA34CC68 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		733F829EC7AB79F0EDC389E4 /* USAirQMinder */ = {
-			isa = PBXGroup;
-			children = (
-				1746423D37FF352A2C8D7D45 /* ContentView.swift */,
-				65576E6C85F16D836B751232 /* Info.plist */,
-				7D3BD74538D90E355ADDB105 /* Models */,
-				3128EB7F72E617DE312528D9 /* Services */,
-				CD3F8490F444C4C172463E8F /* USAirQMinderApp.swift */,
-				B000AC39AB46A6B9413CCD1D /* Views */,
+				7BFFDA3A0D520BDC5315B02E /* Assets.xcassets */,
+				EA6D44CA6C90639EC8B8BBD7 /* ContentView.swift */,
+				B9536FDC7AF436D552DF1616 /* Info.plist */,
+				5BC9A97E3CFC63B67C9B918B /* Models */,
+				CDCBC3101F809DA142DD26A4 /* Services */,
+				313F0FAB85ED734FFD5D1307 /* USAirQMinder.entitlements */,
+				706C5BCE9AF08854ECCABFAA /* USAirQMinderApp.swift */,
+				C0BEF0045E7A11421EC5E57E /* Views */,
 			);
 			name = USAirQMinder;
 			path = USAirQMinder;
 			sourceTree = "<group>";
 		};
-		7D3BD74538D90E355ADDB105 /* Models */ = {
+		4992F80A7F6F392B9AF486EC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0EC7461C7F827BF06D09353C /* AQI.swift */,
-				150F8777DDBCC224E3F9353D /* AppViewModel.swift */,
+				E44C1959E3390915D2108068 /* USAirQMinder.app */,
+				05CDF6106184E8F778B474BC /* USAirQMinderWidget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5BC9A97E3CFC63B67C9B918B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C9B634AC591B03EEE28D33B1 /* AQI.swift */,
+				4DE4478229EEB603F342E979 /* AppViewModel.swift */,
+				1E0790B08898FC1414E793BA /* SharedDefaults.swift */,
 			);
 			name = Models;
 			path = Models;
 			sourceTree = "<group>";
 		};
-		B000AC39AB46A6B9413CCD1D /* Views */ = {
+		5E6AC1CB74C4B8FC51ED7843 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BA82A7FC41636A26544D36E6 /* SettingsView.swift */,
+				B188BC013BE7952307B108EF /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B188BC013BE7952307B108EF /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4D347165DA0EB191D289250D /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		C0BEF0045E7A11421EC5E57E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DF1238B0684FC7F507427DDA /* SettingsView.swift */,
 			);
 			name = Views;
 			path = Views;
 			sourceTree = "<group>";
 		};
-		C8CDC4CAB7E23DD74D283558 /* Frameworks */ = {
+		C6009D0BEB4EDFF3657E0B53 = {
 			isa = PBXGroup;
 			children = (
-				47CBE7E18884278D05DB903F /* iOS */,
+				4992F80A7F6F392B9AF486EC /* Products */,
+				5E6AC1CB74C4B8FC51ED7843 /* Frameworks */,
+				198261E6278FC65F10A8956A /* USAirQMinder */,
+				E967976C91192B37816A695B /* USAirQMinderWidget */,
 			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C9B4C93B6C34080A33A807D0 = {
+		CDCBC3101F809DA142DD26A4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				2F53DA696FCD518A278C2BEE /* Products */,
-				C8CDC4CAB7E23DD74D283558 /* Frameworks */,
-				733F829EC7AB79F0EDC389E4 /* USAirQMinder */,
+				D5BC90636B36C19372206ED1 /* AQIService.swift */,
+				D5D72916837071C6B3B4376C /* LocationService.swift */,
 			);
+			name = Services;
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E967976C91192B37816A695B /* USAirQMinderWidget */ = {
+			isa = PBXGroup;
+			children = (
+				D6914AEE97527E9F1AE4BB2B /* AQIWidget.swift */,
+				101E4EB6DFBBB2940BC24BC3 /* Info.plist */,
+				492AFDCC30ADE1AF3EAE369F /* USAirQMinderWidget.entitlements */,
+			);
+			name = USAirQMinderWidget;
+			path = USAirQMinderWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4E31889BDB730771161F80A4 /* USAirQMinder */ = {
+		D3AF6C98D7771B8787DFCAF6 /* USAirQMinderWidget */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9363705D53E5A8C5CB42D715 /* Build configuration list for PBXNativeTarget "USAirQMinder" */;
+			buildConfigurationList = D8F7EE9EBDF67396BC46BE5F /* Build configuration list for PBXNativeTarget "USAirQMinderWidget" */;
 			buildPhases = (
-				79C77A034239AF85E8EC4103 /* Sources */,
-				57F67EA15F6F0D234EEBF44C /* Frameworks */,
-				05D6B336A29D14F8E58AEB32 /* Resources */,
+				9C91BD9CE1DC38587DEFA983 /* Sources */,
+				FF6414B2248E01ACA474A400 /* Frameworks */,
+				7F61878E895832CF9E74D302 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			name = USAirQMinderWidget;
+			productName = USAirQMinderWidget;
+			productReference = 05CDF6106184E8F778B474BC /* USAirQMinderWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		EC90B32F1F06A6940834EFF4 /* USAirQMinder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97F4CECD149553ACA27BC1DB /* Build configuration list for PBXNativeTarget "USAirQMinder" */;
+			buildPhases = (
+				BDA16B385C40A0F9CB089AA3 /* Sources */,
+				C913A6691EB611549F2E256C /* Frameworks */,
+				FD6356FE435EE648D15F6359 /* Resources */,
+				8B9CDD09C8D667867663D256 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				45D9A155315B84091095CD56 /* PBXTargetDependency */,
+			);
 			name = USAirQMinder;
 			productName = USAirQMinder;
-			productReference = 24E079442C5C7F60195812AD /* USAirQMinder.app */;
+			productReference = E44C1959E3390915D2108068 /* USAirQMinder.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A926ECBFF3BF9ECA38E7EC57 /* Project object */ = {
+		FB077CA8FF979843D553FD37 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 			};
-			buildConfigurationList = 5C471EBAB30879D35A884B3B /* Build configuration list for PBXProject "USAirQMinder" */;
+			buildConfigurationList = B63225B50E7DD1A3E5F071A9 /* Build configuration list for PBXProject "USAirQMinder" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -155,52 +236,82 @@
 				en,
 				Base,
 			);
-			mainGroup = C9B4C93B6C34080A33A807D0;
+			mainGroup = C6009D0BEB4EDFF3657E0B53;
 			minimizedProjectReferenceProxies = 0;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 2F53DA696FCD518A278C2BEE /* Products */;
+			productRefGroup = 4992F80A7F6F392B9AF486EC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4E31889BDB730771161F80A4 /* USAirQMinder */,
+				EC90B32F1F06A6940834EFF4 /* USAirQMinder */,
+				D3AF6C98D7771B8787DFCAF6 /* USAirQMinderWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		05D6B336A29D14F8E58AEB32 /* Resources */ = {
+		7F61878E895832CF9E74D302 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FD6356FE435EE648D15F6359 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D586579CA8D39FC4D32ED8F5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		79C77A034239AF85E8EC4103 /* Sources */ = {
+		9C91BD9CE1DC38587DEFA983 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB280F492FA2A18D9EE72ECA /* ContentView.swift in Sources */,
-				99AB77A387C684DD7F285A8C /* AQI.swift in Sources */,
-				41BBED301C027AA34C0612EF /* AppViewModel.swift in Sources */,
-				8E50BB76A93D15544A0D65BD /* AQIService.swift in Sources */,
-				FF7B757A3F84FA8ED301733A /* LocationService.swift in Sources */,
-				661CFD53524091F637ACFADB /* USAirQMinderApp.swift in Sources */,
-				830F8523BF31CB30D77A30F2 /* SettingsView.swift in Sources */,
+				5A8C5B04D7C62C45815AE75C /* AQIWidget.swift in Sources */,
+				F32D96C89EFEAB264502CFBD /* AQI.swift in Sources */,
+				A347E05B3768B0684E5BACCD /* SharedDefaults.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA16B385C40A0F9CB089AA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CE9F3EDE34F4D9963F12BB0 /* ContentView.swift in Sources */,
+				5DF986F9477081742F1E8EA6 /* AQI.swift in Sources */,
+				6D0DA040090E43AF2122E3D0 /* AppViewModel.swift in Sources */,
+				295E8B307ECF46A14A50F9B4 /* SharedDefaults.swift in Sources */,
+				9E5F73A28625F24A8170C072 /* AQIService.swift in Sources */,
+				17FBE70FDD16F4A52D1E0F50 /* LocationService.swift in Sources */,
+				5F969A06CCFD7DB8F614FFC2 /* USAirQMinderApp.swift in Sources */,
+				D94870A8C33B331E73FBB757 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		45D9A155315B84091095CD56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = USAirQMinderWidget;
+			target = D3AF6C98D7771B8787DFCAF6 /* USAirQMinderWidget */;
+			targetProxy = 9717E8D1D42DDA218D947CEC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		36B58689DBB754FF0EAA2980 /* Release */ = {
+		0C64429453D95EBA6255972C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = USAirQMinder/USAirQMinder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -213,11 +324,64 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
+			};
+			name = Debug;
+		};
+		46C438F81504E802173FBF5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
-		4F37B5007B5C29DA8B124EEE /* Debug */ = {
+		4833E314664A69EAC93BDC15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -278,12 +442,13 @@
 			};
 			name = Debug;
 		};
-		5BAB97F0BA4B289AFA97DEE1 /* Debug */ = {
+		54496B396AACD8B7FFD0D38E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = USAirQMinder/USAirQMinder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -296,85 +461,86 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		B29B3D7313A420FD7FDA11AE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
+		};
+		982A5FEF82B9EEDB3C59C302 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = USAirQMinderWidget/USAirQMinderWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = USAirQMinderWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Air Quality";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.usairqminder.app.widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E647457B0EB2CE56EA9BE5A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = USAirQMinderWidget/USAirQMinderWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = USAirQMinderWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Air Quality";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.usairqminder.app.widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5C471EBAB30879D35A884B3B /* Build configuration list for PBXProject "USAirQMinder" */ = {
+		97F4CECD149553ACA27BC1DB /* Build configuration list for PBXNativeTarget "USAirQMinder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4F37B5007B5C29DA8B124EEE /* Debug */,
-				B29B3D7313A420FD7FDA11AE /* Release */,
+				54496B396AACD8B7FFD0D38E /* Release */,
+				0C64429453D95EBA6255972C /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9363705D53E5A8C5CB42D715 /* Build configuration list for PBXNativeTarget "USAirQMinder" */ = {
+		B63225B50E7DD1A3E5F071A9 /* Build configuration list for PBXProject "USAirQMinder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				36B58689DBB754FF0EAA2980 /* Release */,
-				5BAB97F0BA4B289AFA97DEE1 /* Debug */,
+				4833E314664A69EAC93BDC15 /* Debug */,
+				46C438F81504E802173FBF5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8F7EE9EBDF67396BC46BE5F /* Build configuration list for PBXNativeTarget "USAirQMinderWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				982A5FEF82B9EEDB3C59C302 /* Release */,
+				E647457B0EB2CE56EA9BE5A8 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A926ECBFF3BF9ECA38E7EC57 /* Project object */;
+	rootObject = FB077CA8FF979843D553FD37 /* Project object */;
 }

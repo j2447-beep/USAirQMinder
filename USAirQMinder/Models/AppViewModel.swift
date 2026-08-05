@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import WidgetKit
 
 @MainActor
 final class AppViewModel: ObservableObject {
@@ -9,7 +10,8 @@ final class AppViewModel: ObservableObject {
     @Published var lastChecked: Date?
 
     @AppStorage("refreshInterval") private var intervalRaw = RefreshInterval.thirtyMinutes.rawValue
-    @AppStorage(AQIService.apiKeyDefaultsKey) var apiKey = ""
+    // In the shared App Group store, so the widget sees the same key.
+    @AppStorage(SharedDefaults.apiKeyKey, store: SharedDefaults.store) var apiKey = ""
 
     private let aqiService = AQIService()
     private let locationService = LocationService()
@@ -39,6 +41,7 @@ final class AppViewModel: ObservableObject {
             let location = try await locationService.currentLocation()
             reading = try await aqiService.latestReading(near: location)
             lastChecked = Date()
+            WidgetCenter.shared.reloadAllTimelines()
         } catch {
             errorMessage = error.localizedDescription
         }
