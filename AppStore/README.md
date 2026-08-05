@@ -1,8 +1,9 @@
 # App Store screenshots
 
-All 1320 × 2868 — the 6.9" iPhone size App Store Connect requires. Captured on
-a simulator created for the purpose, so the home screen holds nothing but the
-stock apps and this one.
+iPhone shots are 1320 × 2868 (6.9"), iPad shots 2064 × 2752 (13") — the two
+sizes App Store Connect requires, the iPad set because the app builds for both
+device families. Captured on simulators created for the purpose, so the home
+screen holds nothing but the stock apps and this one.
 
 | File | Shows |
 |---|---|
@@ -17,8 +18,23 @@ stock apps and this one.
 | `06-widget-step4-add.png` | The widget preview, then Add Widget |
 | `07-widget-on-home.png` | The widget on the home screen, live |
 
-`02` is captured with the API key field **empty** on purpose. A real key in a
-public screenshot would be handing out someone's rate limit.
+### iPad (2064 × 2752)
+
+| File | Shows |
+|---|---|
+| `iPad-01-main-reading.png` | Portland, AQI 170, Unhealthy |
+| `iPad-02-settings.png` | Settings, as a sheet |
+| `iPad-03-add-widget.png` | The widget picker with its sidebar |
+| `iPad-04-widget-on-home.png` | The widget on the home screen, live |
+
+`02` and `iPad-02` are captured with the API key field **empty** on purpose. A
+real key in a public screenshot would be handing out someone's rate limit.
+
+**The iPad layout is the phone layout stretched.** `iPad-01` is the honest
+picture of it: the dial and text sit in the top third and the remaining two
+thirds is empty white. It is not broken, and Apple will accept it, but it
+reads as unfinished next to apps that use the space. Worth laying out properly
+for iPad before leaning on these in a listing.
 
 ## Reproducing them
 
@@ -59,8 +75,8 @@ live, though, so a rerun will show whatever the air is doing that day.
 
 ## Still to do before submitting
 
-- Nothing here is an iPad size. App Store Connect wants 13" iPad shots too if
-  the app is listed as iPad-compatible, and this builds for both.
+- The iPad layout wastes two thirds of the screen (see above). The shots are
+  usable; the layout is what wants work.
 - The in-app clock in `01` reads the machine's real time, not 9:41, since the
   status bar override doesn't reach inside the app. Only noticeable if you look
   for it.
