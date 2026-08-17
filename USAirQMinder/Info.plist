@@ -25,7 +25,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>USAirQMinder uses your location to find the nearest EPA AirNow reporting area and show its current air quality index.</string>
+	<string>USAirQMinder uses your location to look up the air quality index modelled for where you are.</string>
 	<key>UILaunchScreen</key>
 	<dict/>
 	<key>UIRequiredDeviceCapabilities</key>

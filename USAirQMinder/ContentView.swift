@@ -24,16 +24,6 @@ struct ContentView: View {
                     } else if viewModel.isLoading {
                         ProgressView("Finding your air quality…")
                             .padding(.top, 80)
-                    } else if !viewModel.hasAPIKey {
-                        ContentUnavailableView {
-                            Label("AirNow key needed", systemImage: "key")
-                        } description: {
-                            Text("USAirQMinder reads live air quality from the EPA's AirNow service, which needs a free API key.")
-                        } actions: {
-                            Button("Open Settings") { showSettings = true }
-                                .buttonStyle(.borderedProminent)
-                        }
-                        .padding(.top, 40)
                     } else if viewModel.errorMessage == nil {
                         ContentUnavailableView(
                             "No reading yet",
@@ -77,7 +67,7 @@ struct ContentView: View {
                     .environmentObject(viewModel)
             }
             .task {
-                if viewModel.reading == nil && viewModel.hasAPIKey {
+                if viewModel.reading == nil {
                     await viewModel.refresh()
                     viewModel.scheduleTimer()
                 }
@@ -188,9 +178,16 @@ private struct ReadingCard: View {
 
     private var metadata: some View {
         VStack(alignment: isWide ? .leading : .center, spacing: 4) {
-            Label("\(reading.location) · \(Int(reading.distanceKm.rounded())) km away", systemImage: "mappin.and.ellipse")
-            Label("Driven by \(reading.parameterName)", systemImage: "smoke")
-            Label("Observed \(reading.observedAt.formatted(date: .abbreviated, time: .shortened))", systemImage: "clock")
+            Label(reading.location, systemImage: "mappin.and.ellipse")
+            if !reading.parameterName.isEmpty {
+                Label("Driven by \(reading.parameterName)", systemImage: "smoke")
+            }
+            // "Modelled", not "observed" — this figure is a forecast evaluated
+            // at these coordinates, not a reading taken from an instrument.
+            Label("Modelled for \(reading.modelledAt.formatted(date: .abbreviated, time: .shortened))", systemImage: "clock")
+            // Attribution to both CAMS and Open-Meteo is a licence condition,
+            // so it travels with the reading rather than hiding in Settings.
+            Label(OpenMeteoClient.attribution, systemImage: "cloud.sun")
         }
         .font(isWide ? .subheadline : .caption)
         .foregroundStyle(.secondary)

@@ -74,26 +74,17 @@
 <main>
   <h1>USAirQMinder Support</h1>
 
-  <p>Current U.S. air quality for wherever you are, from the EPA's AirNow service. Questions, problems, or ideas? Email <a href="mailto:wjfrench@proton.me">wjfrench@proton.me</a> and you'll get a reply, usually within a couple of days. Answers to the most common questions are below.</p>
+  <p>The current U.S. Air Quality Index for wherever you are. Questions, problems, or ideas? Email <a href="mailto:wjfrench@proton.me">wjfrench@proton.me</a> and you'll get a reply, usually within a couple of days. Answers to the most common questions are below.</p>
 
   <div class="summary">
     <strong>USAirQMinder is not a health or emergency service.</strong>
-    Readings describe a monitoring area near you, published hourly. Air quality can differ over short distances. If you have a condition affected by air quality, follow your doctor's advice and official public health guidance rather than this app.
+    The figures are modelled for your location, not measured at a monitoring station near you. If you have a condition affected by air quality, follow your doctor's advice and official public health guidance rather than this app.
   </div>
 
   <h2>Getting Started</h2>
 
-  <h3>Why do I need an API key?</h3>
-  <p>USAirQMinder reads live data from the EPA's AirNow service, and AirNow issues each person their own key with its own rate limit. A key can't be shipped inside the app — everyone using it would be sharing one allowance, and it would stop working for all of you at once. Keys are free.</p>
-
-  <h3>How do I get one?</h3>
-  <p>Request one at <a href="https://docs.airnowapi.org/account/request/">docs.airnowapi.org/account/request</a>. It arrives by email. Then open USAirQMinder, tap the gear icon, and paste it into <strong>AirNow API key</strong>. The reading appears as soon as you tap Done.</p>
-
-  <h3>Where is my key stored?</h3>
-  <p>On your device only, in storage shared between the app and its widget so both can use it. It is sent to airnowapi.org and nowhere else. See the <a href="privacypolicy.html">privacy policy</a> for the full picture.</p>
-
-  <h3>The app says the key was rejected.</h3>
-  <p>Check for a stray space at the start or end when pasting. If it still fails, request a fresh key — AirNow keys can be reissued, and an old one may have been revoked.</p>
+  <h3>Is there anything to set up?</h3>
+  <p>No. Allow location access when the app asks, and the reading appears. There is no account, no sign-in, and no API key to obtain.</p>
 
   <h2>Readings</h2>
 
@@ -108,25 +99,22 @@
     <li><strong>301+ Hazardous</strong> — health warning of emergency conditions.</li>
   </ul>
 
-  <h3>Why does it show one number when there are three pollutants?</h3>
-  <p>AirNow reports an AQI for each pollutant it measures — ozone, PM2.5, PM10. The figure everyone calls "the AQI" is the worst of them, and that is the one shown large, with the pollutant responsible named underneath. The others appear in the row below it. A pollutant that isn't being reported is left out rather than shown as zero.</p>
+  <h3>Where do the numbers come from?</h3>
+  <p>From the Copernicus Atmosphere Monitoring Service (CAMS) global forecast, served by <a href="https://open-meteo.com/">Open-Meteo</a>. This is a <strong>model</strong>: it estimates pollutant concentrations across a grid covering the whole world, rather than reading them from an instrument near you. The index and its six bands are the EPA's, so a number means what it means anywhere else you see a U.S. AQI — but the figure behind it is a forecast, not an EPA measurement.</p>
 
-  <h3>The reporting area is miles away. Is the reading still useful?</h3>
-  <p>Usually, but treat it as an approximation. The app tells you the distance for exactly this reason. Monitoring areas are sparse in rural parts of the country, and if nothing is found within about 25 miles the app widens its search before giving up.</p>
+  <h3>How is that different from what airnow.gov shows?</h3>
+  <p>airnow.gov publishes readings from actual EPA, state, local and tribal monitors. This app shows a forecast for your coordinates. The two usually agree closely, and can disagree during fast-moving events such as wildfire smoke, where a model may lag what a monitor is recording. If a specific number matters to you — for a health decision, or during a smoke event — check <a href="https://www.airnow.gov/">airnow.gov</a>.</p>
 
-  <h3>It says no reporting area was found.</h3>
-  <p>Either you are outside AirNow's coverage — it covers the United States and its territories — or there is no monitor within range of where you are. There is nothing to fix in the app; the data simply isn't published for that spot.</p>
+  <h3>Why does it show one number when there are six pollutants?</h3>
+  <p>The AQI is worked out separately for each pollutant — ozone, PM2.5, PM10, NO₂, SO₂, CO. The figure everyone calls "the AQI" is the worst of them, and that is the one shown large, with the pollutant responsible named underneath. The others appear in the row below it. A pollutant with no figure is left out rather than shown as zero.</p>
 
   <h3>How often does it update?</h3>
-  <p>AirNow publishes new observations once an hour, so checking more often than that won't get you newer numbers. The app checks on the schedule you pick in Settings while it is open, and every time you return to it. The "Observed" line tells you when the reading itself was taken, which is the time that actually matters.</p>
+  <p>The figures step hourly, so checking more often than that won't get you newer numbers. The app checks on the schedule you pick in Settings while it is open, and every time you return to it. The "Modelled for" line tells you which hour the figure applies to.</p>
 
   <h2>The Widget</h2>
 
   <h3>How do I add it?</h3>
   <p>Touch and hold an empty part of your home screen, tap <strong>Edit</strong> then <strong>Add Widget</strong>, search for USAirQMinder, and choose a size. Small and medium are both available.</p>
-
-  <h3>It says "Add your AirNow key in USAirQMinder".</h3>
-  <p>The widget can't fetch anything until a key is set. Open the app, add your key in Settings, and the widget will fill in on its next refresh.</p>
 
   <h3>It says "Open USAirQMinder to update".</h3>
   <p>The widget's last refresh failed — usually no network, or location unavailable at that moment — and the cached reading it falls back on has gone stale. Opening the app fetches a fresh one and the widget follows.</p>
@@ -135,15 +123,15 @@
   <p>That is iOS. A widget is a separate process from the app, so it needs its own permission to use your location. Allowing it lets the widget refresh on its own instead of only when you open the app.</p>
 
   <h3>It hasn't updated in a while.</h3>
-  <p>iOS decides when widgets may refresh, based on battery, usage patterns and how often you look at it. The app asks for roughly every half hour; the system may allow less. Opening the app always brings both up to date.</p>
+  <p>iOS decides when widgets may refresh, based on battery, usage patterns and how often you look at it. The app asks for roughly hourly; the system may allow less. Opening the app always brings both up to date.</p>
 
   <h2>Privacy</h2>
 
-  <p>No accounts, no analytics, no advertising, and no server of ours for the app to talk to. Your approximate location and your own API key go to AirNow, and nowhere else. The full detail is in the <a href="privacypolicy.html">privacy policy</a>.</p>
+  <p>No accounts, no analytics, no advertising, and no server of ours for the app to talk to. Your approximate location goes to Open-Meteo to fetch the figures, and to Apple's built-in geocoder to turn your coordinates into a place name. Nowhere else. The full detail is in the <a href="privacypolicy.html">privacy policy</a>.</p>
 
   <h2>Data Source</h2>
 
-  <p>All readings come from the U.S. Environmental Protection Agency's <a href="https://www.airnow.gov/">AirNow</a> service, which aggregates measurements from state, local and tribal monitoring agencies. USAirQMinder is not affiliated with or endorsed by the EPA.</p>
+  <p>Figures come from the Copernicus Atmosphere Monitoring Service (CAMS), served by <a href="https://open-meteo.com/">Open-Meteo</a>. The index and its categories follow the U.S. Environmental Protection Agency's published AQI scale. USAirQMinder is not affiliated with or endorsed by the EPA, Open-Meteo, or CAMS.</p>
 
   <div class="contact">
     <strong>Still stuck?</strong><br>
