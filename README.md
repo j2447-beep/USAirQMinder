@@ -143,3 +143,25 @@ override with `INKSCAPE=/path/to/inkscape` if yours differs.
 - `RefreshInterval` still offers "Every 5 minutes". The figures step hourly and
   the free tier is fair-use limited by IP rather than by key, so that option now
   spends someone else's allowance to redisplay the same number.
+
+## Support and privacy pages
+
+They are not in this repo. They live in the ElderMinder repo, under
+`public/usairqminder/`, because that is the directory Firebase Hosting deploys
+to elderminder.com.
+
+There used to be a second copy here, and it is the reason this section exists.
+The Open-Meteo rewrite landed in that copy — the one that deploys nowhere —
+while the live privacy policy went on describing the AirNow build, complete
+with an API key it no longer asks for. Apple requires the App Privacy
+questionnaire to agree with the linked policy, so that gap was a submission
+problem, not an untidiness.
+
+```bash
+cd ~/projects/ElderMinder
+$EDITOR public/usairqminder/privacypolicy.html
+firebase deploy --only hosting --project elder-minder
+```
+
+- <https://elderminder.com/usairqminder/support.html>
+- <https://elderminder.com/usairqminder/privacypolicy.html>
