@@ -10,8 +10,6 @@ final class AppViewModel: ObservableObject {
     @Published var lastChecked: Date?
 
     @AppStorage("refreshInterval") private var intervalRaw = RefreshInterval.thirtyMinutes.rawValue
-    // In the shared App Group store, so the widget sees the same key.
-    @AppStorage(SharedDefaults.apiKeyKey, store: SharedDefaults.store) var apiKey = ""
 
     private let aqiService = AQIService()
     private let locationService = LocationService()
@@ -24,10 +22,6 @@ final class AppViewModel: ObservableObject {
             objectWillChange.send()
             scheduleTimer()
         }
-    }
-
-    var hasAPIKey: Bool {
-        !apiKey.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 
     var nextCheck: Date? {

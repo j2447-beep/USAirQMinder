@@ -5,7 +5,10 @@ import CoreLocation
 // The widget is self-contained: it fetches its own location and reading so it
 // can refresh in the background without the app running. NSWidgetWantsLocation
 // in Info.plist lets it reuse the location permission granted to the app, and
-// the App Group lets it read the AirNow key the app stored.
+// the App Group carries its cached reading between refreshes. It needs no
+// credential of any kind — Open-Meteo is unkeyed — so unlike the old AirNow
+// build there is no state in which the widget has to ask the user for
+// something before it can show a number.
 
 @main
 struct USAirQMinderWidgetBundle: WidgetBundle {
@@ -38,7 +41,7 @@ struct AQIWidget: Widget {
                 }
         }
         .configurationDisplayName("Air Quality")
-        .description("The latest EPA Air Quality Index near you.")
+        .description("The latest US Air Quality Index for where you are.")
         .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
@@ -50,17 +53,12 @@ struct AQIEntry: TimelineEntry {
     let aqi: Int?
     let areaName: String
     let pollutant: String
-    let observedAt: Date?
-    /// Set when the reason for having no reading is a missing key, so the
-    /// widget can say what to do rather than just showing a dash.
-    let needsKey: Bool
+    let modelledAt: Date?
 
     static let placeholder = AQIEntry(date: .now, aqi: 42, areaName: "Your area",
-                                      pollutant: "PM2.5", observedAt: .now, needsKey: false)
+                                      pollutant: "PM2.5", modelledAt: .now)
     static let unavailable = AQIEntry(date: .now, aqi: nil, areaName: "",
-                                      pollutant: "", observedAt: nil, needsKey: false)
-    static let keyMissing = AQIEntry(date: .now, aqi: nil, areaName: "",
-                                     pollutant: "", observedAt: nil, needsKey: true)
+                                      pollutant: "", modelledAt: nil)
 }
 
 struct AQIProvider: TimelineProvider {
@@ -77,17 +75,18 @@ struct AQIProvider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<AQIEntry>) -> Void) {
         Task {
             let entry = await fetchEntry()
-            // AirNow publishes hourly; ask iOS to refresh roughly twice an hour.
-            let next = Date().addingTimeInterval(30 * 60)
+            // The forecast steps hourly, so there is nothing new to show before
+            // then; asking more often spends the widget's refresh budget to
+            // redisplay the same number.
+            let next = Date().addingTimeInterval(60 * 60)
             completion(Timeline(entries: [entry], policy: .after(next)))
         }
     }
 
     private func fetchEntry() async -> AQIEntry {
-        guard !SharedDefaults.apiKey.isEmpty else { return .keyMissing }
         do {
             let location = try await withTimeout(seconds: 8) { try await WidgetLocation().current() }
-            let entry = try await withTimeout(seconds: 10) { try await fetchNearestReading(location: location) }
+            let entry = try await withTimeout(seconds: 10) { try await fetchReading(location: location) }
             EntryCache.save(entry)
             return entry
         } catch {
@@ -97,31 +96,18 @@ struct AQIProvider: TimelineProvider {
         }
     }
 
-    private func fetchNearestReading(location: CLLocation) async throws -> AQIEntry {
-        let key = SharedDefaults.apiKey
-        var components = URLComponents(string: "https://www.airnowapi.org/aq/observation/latLong/current/")!
-        components.queryItems = [
-            URLQueryItem(name: "format", value: "application/json"),
-            URLQueryItem(name: "latitude", value: String(location.coordinate.latitude)),
-            URLQueryItem(name: "longitude", value: String(location.coordinate.longitude)),
-            URLQueryItem(name: "distance", value: "75"),
-            URLQueryItem(name: "API_KEY", value: key),
-        ]
-
-        let (data, _) = try await URLSession.shared.data(from: components.url!)
-        let observations = (try? JSONDecoder().decode([AirNowObservation].self, from: data)) ?? []
-
-        // Same rule as the app: the reported AQI is the worst pollutant's.
-        guard let worst = observations.filter({ $0.aqi >= 0 }).max(by: { $0.aqi < $1.aqi }) else {
-            return .unavailable
-        }
+    private func fetchReading(location: CLLocation) async throws -> AQIEntry {
+        // Same client, and therefore the same worst-pollutant rule, as the app.
+        let reading = try await OpenMeteoClient.reading(
+            at: location.coordinate,
+            placeName: await PlaceNamer.name(for: location)
+        )
         return AQIEntry(
             date: .now,
-            aqi: worst.aqi,
-            areaName: worst.reportingArea,
-            pollutant: worst.parameterName,
-            observedAt: worst.observedAt,
-            needsKey: false
+            aqi: reading.aqi,
+            areaName: reading.location,
+            pollutant: reading.parameterName,
+            modelledAt: reading.modelledAt
         )
     }
 }
@@ -149,13 +135,13 @@ enum EntryCache {
     private static let maxAge: TimeInterval = 6 * 60 * 60
 
     static func save(_ entry: AQIEntry) {
-        guard let aqi = entry.aqi, let observedAt = entry.observedAt else { return }
+        guard let aqi = entry.aqi, let modelledAt = entry.modelledAt else { return }
         SharedDefaults.store.set(
             [
                 "aqi": aqi,
                 "area": entry.areaName,
                 "pollutant": entry.pollutant,
-                "observedAt": observedAt.timeIntervalSince1970,
+                "modelledAt": modelledAt.timeIntervalSince1970,
             ] as [String: Any],
             forKey: key
         )
@@ -165,16 +151,15 @@ enum EntryCache {
         guard let dict = SharedDefaults.store.dictionary(forKey: key),
               let aqi = dict["aqi"] as? Int,
               let area = dict["area"] as? String,
-              let observedTs = dict["observedAt"] as? Double else { return nil }
-        let observedAt = Date(timeIntervalSince1970: observedTs)
-        guard Date().timeIntervalSince(observedAt) < maxAge else { return nil }
+              let modelledTs = dict["modelledAt"] as? Double else { return nil }
+        let modelledAt = Date(timeIntervalSince1970: modelledTs)
+        guard Date().timeIntervalSince(modelledAt) < maxAge else { return nil }
         return AQIEntry(
             date: .now,
             aqi: aqi,
             areaName: area,
             pollutant: dict["pollutant"] as? String ?? "",
-            observedAt: observedAt,
-            needsKey: false
+            modelledAt: modelledAt
         )
     }
 }
@@ -264,15 +249,7 @@ struct AQIWidgetView: View {
     }
 
     var body: some View {
-        if entry.needsKey {
-            VStack(spacing: 6) {
-                Image(systemName: "key").font(.title2).foregroundStyle(.white.opacity(0.65))
-                Text("Add your AirNow key in USAirQMinder")
-                    .font(.caption2)
-                    .multilineTextAlignment(.center)
-                    .foregroundStyle(.white.opacity(0.65))
-            }
-        } else if entry.aqi == nil {
+        if entry.aqi == nil {
             VStack(spacing: 6) {
                 Image(systemName: "aqi.medium").font(.title2).foregroundStyle(.white.opacity(0.65))
                 Text("Open USAirQMinder to update")
@@ -321,11 +298,14 @@ struct AQIWidgetView: View {
                             .font(.caption2)
                             .foregroundStyle(.white.opacity(0.65))
                     }
-                    if let observed = entry.observedAt {
-                        Text("Observed \(observed.formatted(date: .omitted, time: .shortened))")
+                    if let modelled = entry.modelledAt {
+                        Text("Modelled \(modelled.formatted(date: .omitted, time: .shortened))")
                             .font(.caption2)
                             .foregroundStyle(.white.opacity(0.65))
                     }
+                    Text(OpenMeteoClient.attribution)
+                        .font(.caption2)
+                        .foregroundStyle(.white.opacity(0.45))
                 }
                 Spacer()
             }

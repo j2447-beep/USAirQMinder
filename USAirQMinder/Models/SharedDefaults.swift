@@ -1,23 +1,15 @@
 import Foundation
 
-/// Settings the app and its widget both need.
+/// The container the app and its widget both write to.
 ///
-/// The widget runs in its own process with its own `UserDefaults`, so a key
-/// typed into the app's settings is invisible to it. An App Group gives the
-/// two a container they can both read — without one the widget would have no
-/// way to reach AirNow at all. (AirQMinder's widget needs no key, which is
-/// why it doesn't have this.)
+/// The widget runs in its own process with its own `UserDefaults`, so anything
+/// the app stores is invisible to it without an App Group. It no longer holds
+/// an API key — Open-Meteo needs none — but the widget still caches its last
+/// good reading here so a failed refresh can fall back on it.
 enum SharedDefaults {
     static let suiteName = "group.com.usairqminder.app"
 
     /// Falls back to `.standard` so a missing or misprovisioned App Group
-    /// degrades to the app still working on its own, rather than crashing.
+    /// degrades to the widget keeping its own cache, rather than crashing.
     static let store: UserDefaults = UserDefaults(suiteName: suiteName) ?? .standard
-
-    static let apiKeyKey = "airNowAPIKey"
-
-    static var apiKey: String {
-        store.string(forKey: apiKeyKey)?
-            .trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-    }
 }

@@ -11,7 +11,7 @@ struct USAirQMinderApp: App {
                 .environmentObject(viewModel)
         }
         .onChange(of: scenePhase) { _, phase in
-            if phase == .active && viewModel.hasAPIKey {
+            if phase == .active {
                 Task { await viewModel.refresh() }
                 viewModel.scheduleTimer()
             }

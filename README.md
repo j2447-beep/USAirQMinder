@@ -1,46 +1,69 @@
 # USAirQMinder
 
-Current US air quality at your location, from the EPA's AirNow service. The
-American counterpart to [AirQMinder](../AirQMinder), which does the same for
-Canada using Environment and Climate Change Canada's AQHI feed.
+Current US air quality at your location. The American counterpart to
+[AirQMinder](../AirQMinder), which does the same for Canada using Environment
+and Climate Change Canada's AQHI feed.
 
-Local project — not published anywhere yet.
+## Where the data comes from
 
-## Why AirNow and not AQS
+Open-Meteo's air quality API (`air-quality-api.open-meteo.com`), which serves
+Copernicus Atmosphere Monitoring Service (CAMS) forecasts. **No API key** — that
+is the whole reason for choosing it.
 
-The EPA runs two air quality APIs, and they answer different questions.
+The important thing to keep straight, because it governs every word of user
+facing copy: this is **model output, not measurement**. CAMS estimates pollutant
+concentrations across a grid; nothing here comes off an EPA instrument. What the
+app takes from the EPA is the *scale* — `us_aqi_*` applies the EPA's published
+AQI breakpoints to the modelled concentrations, so 51 means Moderate exactly as
+it does on airnow.gov.
 
-**AQS** (`aqs.epa.gov/data/api`) is the regulatory archive: quality-assured
-data submitted by state and local agencies. Every query needs an explicit
-`bdate`/`edate` range, and the data lags by months while it is validated and
-certified. It is built for analysis of what the air *was*.
+So: say "modelled", never "observed" or "measured". Say the index follows the
+EPA's scale, never that the data is the EPA's. The app, its support page and its
+privacy policy all say so explicitly, and the App Store listing was rewritten to
+match.
 
-**AirNow** (`airnowapi.org`) is the real-time feed: hourly observations,
-queryable by latitude and longitude, which is what "what am I breathing right
-now" needs. It is the same data behind airnow.gov and the EPA's own app.
+### Why not AirNow
 
-This app uses AirNow. AQS is still the right source if trends or history are
-ever added.
+The app used to read the EPA's AirNow feed, which does serve real monitor
+observations. It was dropped because AirNow issues a key per user and rate limits
+to it, so no key could ship in the app — every user had to go and request their
+own before the app would show anything. That made the app unusable on first
+launch and untestable by App Review without a key pasted into the review notes.
 
-## The AirNow key
+AirNow remains the better data. If a way to ship a key ever exists, it is worth
+reconsidering — the trade made here is real, and it is accuracy for access.
 
-AirNow issues a free key per user, rate-limited to that key, so the app can't
-ship with one baked in. Enter yours under Settings; it is stored in
-`UserDefaults` on the device and sent only to airnowapi.org.
+### Why not AQS
 
-Request one at <https://docs.airnowapi.org/account/request/>.
+The EPA's other API (`aqs.epa.gov/data/api`) is the regulatory archive:
+quality-assured, but every query needs an explicit `bdate`/`edate` range and the
+data lags by months. It answers what the air *was*, not what it is. Still the
+right source if trends or history are ever added.
 
 ## What it shows
 
-AirNow reports a separate AQI per pollutant (ozone, PM2.5, PM10). The number
-shown as "the AQI" is the highest of them, and the pollutant carrying it is
-named underneath — that is the one the EPA health advice is written about.
-The others appear in a row below. Readings of `-1` mean the pollutant isn't
-being reported and are dropped.
+The AQI is computed per pollutant (ozone, PM2.5, PM10, NO₂, SO₂, CO). The number
+shown as "the AQI" is the highest of them, and the pollutant carrying it is named
+underneath — that is the one the health advice is written about. The others
+appear in a row below. Pollutants the model returns nothing for are left out.
+
+The headline is deliberately the worst sub-index rather than Open-Meteo's own
+`us_aqi` field, so the big number always agrees with the pollutant named beneath
+it. `us_aqi` is the same figure computed upstream and is used only as a fallback.
+
+Coordinates are turned into a place name ("Denver, CO") with Apple's on-device
+`CLGeocoder`, since a model grid point has no name of its own to borrow. It is
+best-effort: a failure shows "Your location" rather than an error.
 
 Categories follow the EPA's six bands and their published colors. Yellow on
 white is unreadable, so Moderate uses a darkened shade for text while the dial
 keeps the official color.
+
+## Attribution
+
+Open-Meteo's licence requires visible credit to both CAMS and Open-Meteo. That is
+`OpenMeteoClient.attribution`, shown under every reading in the app and in the
+medium widget — not tucked away in an About box. Don't remove it.
 
 ## Layout
 
@@ -49,14 +72,20 @@ USAirQMinder/
   USAirQMinderApp.swift     app entry, refresh on foreground
   ContentView.swift         the dial, category, pollutant breakdown
   Models/
-    AQI.swift               reading, EPA categories, AirNow decoding
+    AQI.swift               reading, EPA categories, Open-Meteo client, geocoding
     AppViewModel.swift      refresh loop and stored settings
+    SharedDefaults.swift    App Group container, shared with the widget
   Services/
-    AQIService.swift        AirNow requests, dominant-pollutant logic
+    AQIService.swift        app-side ordering: name the place, then fetch
     LocationService.swift   one-shot CLLocationManager wrapper
   Views/
-    SettingsView.swift      API key, refresh interval
+    SettingsView.swift      refresh interval, data source and its caveats
 ```
+
+`AQI.swift` and `SharedDefaults.swift` are members of **both** targets, which is
+why the Open-Meteo client lives in the former rather than in `Services/`. Adding
+a new shared file means hand-editing the pbxproj Xcode owns, so prefer extending
+one of those two.
 
 ## Building
 
@@ -64,6 +93,11 @@ USAirQMinder/
 the app, and commit the resulting `project.pbxproj` diff like any other file.
 It was generated by a script early on; that script is gone, because a generator
 and Xcode both writing the same file means whichever ran last wins.
+
+If `xcodebuild` complains that it "requires Xcode", `xcode-select` is pointing at
+the command line tools. Either fix it globally with
+`sudo xcode-select -s /Applications/Xcode.app`, or prefix the build with
+`DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer`.
 
 The scheme is shared (`xcshareddata/xcschemes`) rather than living in
 `xcuserdata`, so a fresh clone can build without Xcode inventing one first.
@@ -103,3 +137,9 @@ override with `INKSCAPE=/path/to/inkscape` if yours differs.
   sizes would read better on the home screen.
 - The widget's cached reading is not shared with the app's, so each fetches
   its own.
+- App Store screenshots still show the AirNow-era UI: a "km away" line that no
+  longer exists, and a settings screen with an API key field. They need
+  recapturing before submission.
+- `RefreshInterval` still offers "Every 5 minutes". The figures step hourly and
+  the free tier is fair-use limited by IP rather than by key, so that option now
+  spends someone else's allowance to redisplay the same number.
