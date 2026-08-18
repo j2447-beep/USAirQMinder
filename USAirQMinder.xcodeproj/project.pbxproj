@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17FBE70FDD16F4A52D1E0F50 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D72916837071C6B3B4376C /* LocationService.swift */; };
+		A1B2C3D4E5F60718293A4B5C /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E2D3C4B5A69788796A5B4 /* Store.swift */; };
 		1CE9F3EDE34F4D9963F12BB0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D44CA6C90639EC8B8BBD7 /* ContentView.swift */; };
 		295E8B307ECF46A14A50F9B4 /* SharedDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0790B08898FC1414E793BA /* SharedDefaults.swift */; };
 		5A8C5B04D7C62C45815AE75C /* AQIWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6914AEE97527E9F1AE4BB2B /* AQIWidget.swift */; };
@@ -62,6 +63,7 @@
 		C9B634AC591B03EEE28D33B1 /* AQI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AQI.swift; sourceTree = "<group>"; };
 		D5BC90636B36C19372206ED1 /* AQIService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AQIService.swift; sourceTree = "<group>"; };
 		D5D72916837071C6B3B4376C /* LocationService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		0F1E2D3C4B5A69788796A5B4 /* Store.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		D6914AEE97527E9F1AE4BB2B /* AQIWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AQIWidget.swift; sourceTree = "<group>"; };
 		DF1238B0684FC7F507427DDA /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E44C1959E3390915D2108068 /* USAirQMinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = USAirQMinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +166,7 @@
 			children = (
 				D5BC90636B36C19372206ED1 /* AQIService.swift */,
 				D5D72916837071C6B3B4376C /* LocationService.swift */,
+				0F1E2D3C4B5A69788796A5B4 /* Store.swift */,
 			);
 			name = Services;
 			path = Services;
@@ -288,6 +291,7 @@
 				295E8B307ECF46A14A50F9B4 /* SharedDefaults.swift in Sources */,
 				9E5F73A28625F24A8170C072 /* AQIService.swift in Sources */,
 				17FBE70FDD16F4A52D1E0F50 /* LocationService.swift in Sources */,
+				A1B2C3D4E5F60718293A4B5C /* Store.swift in Sources */,
 				5F969A06CCFD7DB8F614FFC2 /* USAirQMinderApp.swift in Sources */,
 				D94870A8C33B331E73FBB757 /* SettingsView.swift in Sources */,
 			);
