@@ -25,23 +25,46 @@ Two items (1 and 2) cannot be answered from this repo — see the flags.
 
 ## 1. Screen recording on a physical device
 
-**❗ You must do this — it cannot be produced here.** Apple requires a physical
-device running the latest OS; a simulator recording does not satisfy this, and
-the tooling available in this project drives simulators only.
+Recorded on a physical iPhone (1260x2736, HEVC 60fps, with audio track) —
+`ScreenRecording_08-18-2026 09-36-30_1.MP4` is the better take: it loads in
+about two seconds and also demonstrates the "About Open-Meteo" link opening
+open-meteo.com. The 09-53 take is 87s with a ~25 second load and reads as a
+hang; do not send it.
 
-The recording must start with launching the app and show the typical flow.
-Apple specifically asks that prompts requesting sensitive data are included, and
-this app has one, so the order matters:
+**iOS screen recording does not capture system permission alerts.** They are
+drawn in a separate secure layer, so the location prompt is absent from the
+recording even though it appeared on the device — confirmed by the screenshots
+below, timestamped inside the recording window. Deleting the app and
+re-recording does not help.
 
-1. Launch from the home screen (start recording before the tap)
-2. **The location permission prompt** — let it appear on camera, then Allow
-3. The reading appearing: number, category, colour, pollutant breakdown
-4. Pull to refresh, or the refresh button
-5. The gear icon → Settings, showing the update schedule and data-source note
-6. Optionally: long-press the home screen and add the widget, both sizes
+So the prompts are supplied as stills, and the Notes must say why. Suggested
+wording to include:
 
-There is no account, no purchase, no subscription and no user-generated content,
-so the other bullets in Apple's item 1 do not apply.
+```
+The recording was captured on a physical iPhone and begins with launching the
+app from the home screen.
+
+iOS does not include system permission alerts in screen recordings — they are
+rendered in a separate secure layer — so the two location prompts are attached
+as screenshots taken on the same device during the same session:
+
+  IMG_1153  the app's location permission prompt, showing the purpose string
+  IMG_1154  the widget's separate location permission prompt, shown when the
+            widget is added to the home screen
+  IMG_1155  the widget running on the home screen
+
+The app requests location once at launch. The widget requests it separately
+because iOS treats a widget as its own process. These are the only permission
+requests the app makes. There is no account, no purchase, no subscription and
+no user-generated content, so the remaining items in your list do not apply.
+```
+
+**Still to fix before sending:** every reading in the current recording and
+screenshots shows **"Mission, BC"** — a Canadian location, in an app called
+USAirQMinder whose description says "wherever you happen to be in the United
+States" and whose availability is the US storefront. It is not a bug (the model
+has global coverage, see item 6) but a reviewer seeing British Columbia in a
+US-branded app is likely to ask more questions. Re-record showing a US city.
 
 ## 2. Devices and operating systems tested
 
