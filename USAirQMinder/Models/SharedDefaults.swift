@@ -20,7 +20,17 @@ enum SharedDefaults {
     // MARK: - Access
 
     /// How long the app works before the unlock is required.
-    static let trialDays = 14
+    ///
+    /// 30 rather than 14 because this is a glance-at-it utility, not something
+    /// opened daily. A fortnight can pass with only three or four real uses —
+    /// too few to judge whether it is worth paying for. A month covers a
+    /// change in the weather, which is when anyone actually wants it.
+    ///
+    /// Not an Apple-defined number: Apple provides no trial mechanism for a
+    /// non-consumable, so this is entirely ours and any value works. (Apple's
+    /// 16-day figure is the *billing grace period* for auto-renewable
+    /// subscriptions — a different mechanism that does not apply here.)
+    static let trialDays = 30
 
     private static let trialStartKey = "trialStart"
     private static let unlockedKey = "isUnlocked"
