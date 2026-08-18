@@ -32,6 +32,11 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<!-- All four are required, not optional: the app ships for iPad, and an
+	     iPad app that has not opted out of multitasking must declare every
+	     orientation or the App Store rejects the bundle outright. Upside-down
+	     costs nothing on iPhone, where iOS ignores it on any device with
+	     Face ID. -->
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
