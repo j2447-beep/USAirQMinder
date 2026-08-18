@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject private var viewModel: AppViewModel
+    @StateObject private var store = Store()
     @State private var showSettings = false
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
@@ -19,7 +20,9 @@ struct ContentView: View {
                             .padding(.horizontal)
                     }
 
-                    if let reading = viewModel.reading {
+                    if !store.isUnlocked && !SharedDefaults.isTrialActive {
+                        UnlockView(store: store)
+                    } else if let reading = viewModel.reading {
                         ReadingCard(reading: reading)
                     } else if viewModel.isLoading {
                         ProgressView("Finding your air quality…")
@@ -67,7 +70,8 @@ struct ContentView: View {
                     .environmentObject(viewModel)
             }
             .task {
-                if viewModel.reading == nil {
+                await store.loadProduct()
+                if viewModel.reading == nil && SharedDefaults.hasAccess {
                     await viewModel.refresh()
                     viewModel.scheduleTimer()
                 }
@@ -77,6 +81,13 @@ struct ContentView: View {
 
     private var scheduleFooter: some View {
         VStack(spacing: 4) {
+            if !store.isUnlocked && SharedDefaults.isTrialActive {
+                let left = SharedDefaults.trialDaysRemaining
+                Text(left == 1 ? "Last day of your free trial" : "^[\(left) day](inflect: true) left in your free trial")
+                    .font(.footnote.weight(.medium))
+                    .foregroundStyle(.orange)
+                    .padding(.bottom, 2)
+            }
             if let lastChecked = viewModel.lastChecked {
                 Text("Last checked \(lastChecked.formatted(date: .omitted, time: .shortened))")
             }
@@ -240,5 +251,71 @@ extension View {
         } else {
             self
         }
+    }
+}
+
+
+/// Shown once the trial has lapsed and the unlock has not been bought.
+///
+/// Deliberately states what the purchase is — one payment, no subscription —
+/// because "unlock" alone leaves people guessing whether it recurs.
+private struct UnlockView: View {
+    @ObservedObject var store: Store
+
+    var body: some View {
+        VStack(spacing: 20) {
+            Image(systemName: "aqi.medium")
+                .font(.system(size: 56))
+                .foregroundStyle(.tint)
+
+            Text("Your free trial has ended")
+                .font(.title2.weight(.bold))
+                .multilineTextAlignment(.center)
+
+            Text("Unlock USAirQMinder to keep seeing the air quality where you are. One payment, no subscription, and it covers this app on all your devices.")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+
+            if store.isWorking {
+                ProgressView().padding(.vertical, 6)
+            } else if let price = store.displayPrice {
+                Button {
+                    Task { await store.purchase() }
+                } label: {
+                    Text("Unlock for \(price)")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 4)
+                }
+                .buttonStyle(.borderedProminent)
+                .padding(.horizontal, 40)
+            } else {
+                // No product means the store could not be reached. Say so
+                // rather than showing a button that cannot work.
+                Text("The App Store is not reachable right now. Please try again shortly.")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+            }
+
+            Button("Restore Purchase") {
+                Task { await store.restore() }
+            }
+            .font(.footnote)
+            .disabled(store.isWorking)
+
+            if let error = store.errorMessage {
+                Text(error)
+                    .font(.footnote)
+                    .foregroundStyle(.red)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+            }
+        }
+        .padding(.top, 40)
+        .padding(.bottom, 12)
     }
 }

@@ -29,6 +29,13 @@ final class AppViewModel: ObservableObject {
     }
 
     func refresh() async {
+        // Don't spend a request the user is not entitled to. The paywall is
+        // shown by the view; this just declines to fetch behind it.
+        guard SharedDefaults.hasAccess else {
+            reading = nil
+            isLoading = false
+            return
+        }
         isLoading = true
         errorMessage = nil
         do {

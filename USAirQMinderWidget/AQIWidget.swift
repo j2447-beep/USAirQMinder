@@ -54,11 +54,16 @@ struct AQIEntry: TimelineEntry {
     let areaName: String
     let pollutant: String
     let modelledAt: Date?
+    var isLocked = false
 
     static let placeholder = AQIEntry(date: .now, aqi: 42, areaName: "Your area",
                                       pollutant: "PM2.5", modelledAt: .now)
     static let unavailable = AQIEntry(date: .now, aqi: nil, areaName: "",
                                       pollutant: "", modelledAt: nil)
+    /// Trial over and unlock not purchased. Distinct from `unavailable`, which
+    /// means a fetch failed — the two need different words on screen.
+    static let locked = AQIEntry(date: .now, aqi: nil, areaName: "",
+                                 pollutant: "", modelledAt: nil, isLocked: true)
 }
 
 struct AQIProvider: TimelineProvider {
@@ -84,6 +89,9 @@ struct AQIProvider: TimelineProvider {
     }
 
     private func fetchEntry() async -> AQIEntry {
+        // Honour the same entitlement the app does. The widget cannot run a
+        // purchase flow, so it reads the decision rather than making one.
+        guard SharedDefaults.hasAccess else { return .locked }
         do {
             let location = try await withTimeout(seconds: 8) { try await WidgetLocation().current() }
             let entry = try await withTimeout(seconds: 10) { try await fetchReading(location: location) }
@@ -249,7 +257,15 @@ struct AQIWidgetView: View {
     }
 
     var body: some View {
-        if entry.aqi == nil {
+        if entry.isLocked {
+            VStack(spacing: 6) {
+                Image(systemName: "lock").font(.title3).foregroundStyle(.white.opacity(0.7))
+                Text("Open USAirQMinder to unlock")
+                    .font(.caption2)
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(.white.opacity(0.7))
+            }
+        } else if entry.aqi == nil {
             VStack(spacing: 6) {
                 Image(systemName: "aqi.medium").font(.title2).foregroundStyle(.white.opacity(0.65))
                 Text("Open USAirQMinder to update")
